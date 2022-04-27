@@ -6,6 +6,14 @@ namespace Assignment1
 {
     class Notebook : Computer
     {
+        public Notebook(int computerId) : base(computerId)
+        {
+            Type = "Netbook";
+
+            UsedFor = new string[] { "Internet", "Scientific" };
+            price = 10000;
+        }
+
         public int NotebookId { get; set; }  // notebook 아이디
 
     }
