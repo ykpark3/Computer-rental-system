@@ -8,12 +8,11 @@ namespace Assignment1
     {
         public Notebook(int computerId) : base(computerId)
         {
-            Type = "Netbook";
+            Type = "Notebook";
 
             UsedFor = new string[] { "Internet", "Scientific" };
             price = 10000;
         }
-
         public int NotebookId { get; set; }  // notebook 아이디
 
     }

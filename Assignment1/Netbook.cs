@@ -15,7 +15,6 @@ namespace Assignment1
             price = 7000;
         }
 
-
         public int NetbookId { get; set; }  // netbook 아이디
 
     }

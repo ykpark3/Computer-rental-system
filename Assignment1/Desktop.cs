@@ -14,7 +14,6 @@ namespace Assignment1
             price = 13000;
         }
 
-
         public int DesktopId { get; set; }  // desktop 아이디
 
     }
