@@ -10,7 +10,7 @@ namespace Assignment1
         {
             Type = "Desktop";
 
-            UsedFor = new string[] { "Internet", "Scientific", "Game" };
+            UsedFor = new string[] { "internet", "scientific", "game" };
             price = 13000;
         }
 

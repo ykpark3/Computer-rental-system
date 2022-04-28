@@ -10,14 +10,17 @@ namespace Assignment1
         private User[] arrUser;
 
         private int count = 0;
-        private int computerArrayIndex = 0, numberOfNetbooks, numberOfNotebooks, numberOfDesktops;
-        private int userArrayIndex = 0, numberOfStudents = 0, numberOfGamers = 0, numberOfWorkers = 0;
+        private int computerArrayIndex = 0, numberOfComputers, numberOfNetbooks, numberOfNotebooks, numberOfDesktops;
+        private int userArrayIndex = 0, numberOfUsers = 0, numberOfStudents = 0, numberOfGamers = 0, numberOfWorkers = 0;
 
         private int totalCost = 0;
 
+        private string[] writeLine = new string[5];
 
-        public void SetComputerArray(int numberOfComputers, int tmpNetbooks, int tmpNotebooks, int tmpDesktops)
+
+        public void SetComputerArray(int tmpComputers, int tmpNetbooks, int tmpNotebooks, int tmpDesktops)
         {
+            numberOfComputers = tmpComputers;
             numberOfNetbooks = tmpNetbooks;
             numberOfNotebooks = tmpNotebooks;
             numberOfDesktops = tmpDesktops;
@@ -38,15 +41,8 @@ namespace Assignment1
 
                 arrComp[computerArrayIndex] = new Netbook(count);
                 Netbook newNetbook = arrComp[computerArrayIndex] as Netbook;
-
                 newNetbook.NetbookId = count;
-
-                /*
-                Netbook newNetbook = new Netbook(count);
-                newNetbook.NetbookId = count;
-
-                arrComp[computerArrayIndex] = newNetbook;
-                */
+                newNetbook.TypeId = newNetbook.NetbookId;
 
             }
 
@@ -55,10 +51,10 @@ namespace Assignment1
             {
                 computerArrayIndex = numberOfComputers - numberOfNotebooks - numberOfDesktops + count - 1;
 
-                Notebook newNotebook = new Notebook(computerArrayIndex + 1);
+                arrComp[computerArrayIndex] = new Notebook(computerArrayIndex + 1);
+                Notebook newNotebook = arrComp[computerArrayIndex] as Notebook;
                 newNotebook.NotebookId = count;
-        
-                arrComp[computerArrayIndex] = newNotebook;
+                newNotebook.TypeId = newNotebook.NotebookId;
             }
 
             // desktop 초기화
@@ -66,10 +62,11 @@ namespace Assignment1
             {
                 computerArrayIndex = numberOfComputers - numberOfDesktops + count - 1;
 
-                Desktop newDesktop = new Desktop(computerArrayIndex + 1);
+                arrComp[computerArrayIndex] = new Desktop(computerArrayIndex + 1);
+                Desktop newDesktop = arrComp[computerArrayIndex] as Desktop;
                 newDesktop.DesktopId = count;
-
-                arrComp[computerArrayIndex] = newDesktop;
+                newDesktop.TypeId = newDesktop.DesktopId;
+            
             }
 
             computerArrayIndex += 1;
@@ -77,8 +74,10 @@ namespace Assignment1
         }
 
         // user 배열 초기화
-        public void InitializeUserArray(int numberOfUsers)
+        public void InitializeUserArray(int tmpUsers)
         {
+            numberOfUsers = tmpUsers;
+
             arrUser = new User[numberOfUsers];
 
             for (userArrayIndex = 0; userArrayIndex < numberOfUsers; userArrayIndex++)
@@ -97,7 +96,8 @@ namespace Assignment1
                 Students newStudent = new Students(userArrayIndex + 1)
                 {
                     Name = userName,
-                    StudentId = numberOfStudents
+                    StudentId = numberOfStudents,
+                    TypeId = numberOfStudents
                 };
 
                 numberOfStudents++;
@@ -109,12 +109,14 @@ namespace Assignment1
             // gamer 추가
             else if (userType.Contains("Gamer"))
             {
-                Gamers newGamer = new Gamers(userArrayIndex + 1);
+                Gamers newGamer = new Gamers(userArrayIndex + 1)
+                {
+                    Name = userName,
+                    GamerId = numberOfGamers,
+                    TypeId = numberOfGamers
+                };
 
                 numberOfGamers++;
-
-                newGamer.Name = userName;
-                newGamer.GamerId = numberOfGamers;
 
                 arrUser[userArrayIndex] = newGamer;
             }
@@ -122,12 +124,14 @@ namespace Assignment1
             // worker 추가
             else if (userType.Contains("Worker"))
             {
-                Workers newWorker = new Workers(userArrayIndex + 1);
+                Workers newWorker = new Workers(userArrayIndex + 1)
+                {
+                    Name = userName,
+                    WorkderId = numberOfWorkers,
+                    TypeId = numberOfWorkers
+                };
 
                 numberOfWorkers++;
-
-                newWorker.Name = userName;
-                newWorker.WorkderId = numberOfWorkers;
 
                 arrUser[userArrayIndex] = newWorker;
             }
@@ -137,13 +141,12 @@ namespace Assignment1
 
         public void TestPrint()
         {
-
             Console.WriteLine("computerIndex = "+ computerArrayIndex);
             Console.WriteLine("userIndex = "+ userArrayIndex);
 
             for (count = 0; count < computerArrayIndex; count++)
             {
-                Console.WriteLine(arrComp[count].ComId);
+                Console.WriteLine(arrComp[count].TypeId);
             }
 
             for (count = 0; count < userArrayIndex; count++)
@@ -171,23 +174,82 @@ namespace Assignment1
         }
 
         // S: 현재 총 지불된 금액, 각 컴퓨터의 대여 상황, 사용자의 현재 상황 정보
-        public void PrintComputerAndUser()
+        public string[] PrintComputerAndUser()
         {
-            Console.WriteLine($"Total Cost: {totalCost}");
+            writeLine[0] = $"Total Cost: {totalCost}" + "\n";
+            //Console.WriteLine($"Total Cost: {totalCost}");
 
             // computer list 출력
-            Console.WriteLine("Computer List:");
-            for (count = 0; count < computerArrayIndex; count++)
-            {
-                Console.WriteLine($"({count + 1}), " +
-                    $"type: {arrComp[count].Type}, " +
-                    $"ComId: {arrComp[count].ComId}, " +
-                    // $"NetId: {arrComp[count]." +
-                    $"");
-            }
-            
-            // user list 출력
+            writeLine[0] += "Computer List:" + "\n";
 
+            for (count = 0; count < numberOfComputers; count++)
+            {
+                writeLine[0] +=
+                    $"({arrComp[count].ComId}) " +
+                    $"type: {arrComp[count].Type}, " +
+                    $"ComId: {arrComp[count].ComId}, ";
+
+                if (arrComp[count].Type.Contains("Netbook"))
+                {
+                    writeLine[0] +=
+                    $"NetId: {arrComp[count].TypeId}, " +
+                    $"Used for: {arrComp[count].UsedFor[0]}, ";
+                }
+                else if (arrComp[count].Type.Contains("Notebook"))
+                {
+                    writeLine[0] += 
+                    $"NoteId: {arrComp[count].TypeId}, " +
+                    $"Used for: {arrComp[count].UsedFor[0]}, {arrComp[count].UsedFor[1]}, ";
+                }
+                else
+                {   // desktop
+                    writeLine[0] +=
+                    $"DeskId: {arrComp[count].TypeId}, " +
+                    $"Used for: {arrComp[count].UsedFor[0]}, {arrComp[count].UsedFor[1]}, {arrComp[count].UsedFor[2]}, ";
+                }
+
+                writeLine[0] +=
+                    $"Avail: {arrComp[count].Available}" + "\n";
+            }
+
+
+            // user list 출력
+            writeLine[1] = "User List:" + "\n";
+
+            for (count = 0; count < numberOfUsers; count++)
+            {
+                writeLine[1] +=
+                    $"({arrUser[count].UserId}) " +
+                    $"type: {arrUser[count].Type}, " +
+                    $"Name: {arrUser[count].Name}, " +
+                    $"UserId: {arrUser[count].UserId}, ";
+
+                if (arrUser[count].Type.Contains("Students"))
+                {
+                    writeLine[1] +=
+                    $"StudId: {arrUser[count].TypeId}, " +
+                    $"Used for: {arrUser[count].UsedFor[0]}, {arrUser[count].UsedFor[1]}, ";
+                }
+                else if (arrUser[count].Type.Contains("Gamers"))
+                {
+                    writeLine[1] +=
+                    $"GamerId: {arrUser[count].TypeId}, " +
+                    $"Used for: {arrUser[count].UsedFor[0]}, {arrUser[count].UsedFor[1]}, ";
+                }
+                else
+                {      // workers
+                    writeLine[1] +=
+                    $"WorkerId: {arrUser[count].TypeId}, " +
+                    $"Used for: {arrUser[count].UsedFor[0]}, ";
+                }
+
+                writeLine[1] +=
+                    $"Rent: {arrUser[count].Rent}" + "\n";
+            }
+
+            writeLine[2] = "===========================================================" + "\n";
+
+            return writeLine;
         }
 
         // 컴퓨터와 사용자 관리를 위한 메소드

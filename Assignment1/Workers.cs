@@ -8,8 +8,8 @@ namespace Assignment1
     {
         public Workers(int userId) : base(userId)
         {
-            Type = "Workers";
-            UsedFor = new string[] { "Internet" };
+            Type = "OfficeWorkers";
+            UsedFor = new string[] { "internet" };
         }
 
         public int WorkderId { get; set; }  // worker 아이디

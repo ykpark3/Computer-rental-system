@@ -10,7 +10,7 @@ namespace Assignment1
         {
             Type = "Notebook";
 
-            UsedFor = new string[] { "Internet", "Scientific" };
+            UsedFor = new string[] { "internet", "scientific" };
             price = 10000;
         }
         public int NotebookId { get; set; }  // notebook 아이디

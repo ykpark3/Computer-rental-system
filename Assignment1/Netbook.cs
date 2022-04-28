@@ -11,11 +11,11 @@ namespace Assignment1
         {
             Type = "Netbook";
 
-            UsedFor = new string[] { "Internet" };
+            UsedFor = new string[] { "internet" };
             price = 7000;
         }
 
         public int NetbookId { get; set; }  // netbook 아이디
-
+     
     }
 }

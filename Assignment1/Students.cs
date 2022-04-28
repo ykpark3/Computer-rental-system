@@ -9,7 +9,7 @@ namespace Assignment1
         public Students(int userId) : base(userId)
         {
             Type = "Students";
-            UsedFor = new string[] { "Internet", "Scientific" };
+            UsedFor = new string[] { "internet", "scientific" };
         }
 
         public int StudentId { get; set; }  // student 아이디

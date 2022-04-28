@@ -1,17 +1,140 @@
-6
-2 1 3
-4
-Student Kim
-Gamer Lee
-Worker Choi
-Student Park
-S
-A 2 3
-A 3 2
-S
-T
-T
-S
-R 2
-S
-Q
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
+Total Cost: 0
+Computer List:
+(1) type: Netbook, ComId: 1, NetId: 1, Used for: internet, Avail: Y
+(2) type: Netbook, ComId: 2, NetId: 2, Used for: internet, Avail: Y
+(3) type: Netbook, ComId: 3, NetId: 3, Used for: internet, Avail: Y
+(4) type: Notebook, ComId: 4, NoteId: 1, Used for: internet, scientific, Avail: Y
+(5) type: Notebook, ComId: 5, NoteId: 2, Used for: internet, scientific, Avail: Y
+(6) type: Desktop, ComId: 6, DeskId: 1, Used for: internet, scientific, game, Avail: Y
+User List:
+(1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
+(2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: N
+(3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
+(4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
+===========================================================
