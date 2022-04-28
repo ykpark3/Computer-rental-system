@@ -156,9 +156,22 @@ namespace Assignment1
         }
 
         // A: 컴퓨터를 사용자에게 할당하는 메소드
-        public void AssignComputerToUser()
+        public void AssignComputerToUser(int userId, int requestedDays)
         {
+            int computerIndex = 0;
 
+            if (arrUser[userId - 1].Type.Contains("Students"))
+            {
+                computerIndex = Array.FindIndex(arrComp,element => (element.Type == "Notebook")|| (element.Type == "Desktop"));
+            }
+
+            arrUser[userId - 1].Rent = "Y";
+
+            arrComp[computerIndex].Available = "N";
+            arrComp[computerIndex].RequestedUserId = userId;
+            arrComp[computerIndex].DaysRequested = requestedDays;
+            arrComp[computerIndex].DaysLeft = requestedDays;
+            arrComp[computerIndex].DaysUsed = 0;
         }
 
         // R: 컴퓨터를 반납
