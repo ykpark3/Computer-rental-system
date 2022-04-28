@@ -18,6 +18,7 @@ namespace Assignment1
         public string[] UsedFor { get; set; }   // 제공 서비스
         public int price { get; set; }  // 요금
         public string Available { get; set; } = "Y";  // 대여 가능 여부
+        public int RentedUserId { get; set; } = 0;   // 대여한 사용자 아이디        
         public int DaysRequested { get; set; } = 0;  // 사용자가 컴퓨터를 대여할 때 요구한 일 수
         public int DaysLeft { get; set; } = 0;  // 남은 대여일 수
         public int DaysUsed { get; set; } = 0;  // 사용한 일 수

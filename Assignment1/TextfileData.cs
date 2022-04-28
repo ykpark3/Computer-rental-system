@@ -89,7 +89,10 @@ namespace Assignment1
                 {
                     if (readLine.StartsWith("A"))   // 사용자에게 요구한 일 수 만큼 대여
                     {
-                        computerManager.AssignComputerToUser();
+                        userInput = readLine.Split(' '); // 공백을 기준으로 개수 자르기
+                        tmpWriteLine = computerManager.AssignComputerToUser(Convert.ToInt32(userInput[1]), Convert.ToInt32(userInput[2]));
+
+                        writeLine += tmpWriteLine[0];
                     }
                     else if (readLine.StartsWith("R")) // 사용자의 컴퓨터 반납
                     {
@@ -102,7 +105,8 @@ namespace Assignment1
                     else if (readLine.Equals("S")) // 총 지불금액, 컴퓨터 리스트, 사용자 리스트 상태 표시
                     {
                         tmpWriteLine = computerManager.PrintComputerAndUser();
-                        writeLine = tmpWriteLine[0] + tmpWriteLine[1] + tmpWriteLine[2];
+
+                        writeLine = writeLine + tmpWriteLine[0] + tmpWriteLine[1] + tmpWriteLine[2];
                     }
 
                     // Q: 프로그램 종료

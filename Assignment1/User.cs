@@ -18,5 +18,6 @@ namespace Assignment1
         public int TypeId { get; set; } // 타입 아이디
         public string[] UsedFor { get; set; }   // 제공 서비스
         public string Rent { get; set; } = "N";  // 대여 여부
+        public int RentComputerId { get; set; } = 0;    // 대여한 컴퓨터 아이디
     }
 }

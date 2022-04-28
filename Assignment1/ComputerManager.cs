@@ -17,7 +17,7 @@ namespace Assignment1
 
         private string[] writeLine = new string[5];
 
-
+        // computer 배열 값 추가하기
         public void SetComputerArray(int tmpComputers, int tmpNetbooks, int tmpNotebooks, int tmpDesktops)
         {
             numberOfComputers = tmpComputers;
@@ -26,14 +26,7 @@ namespace Assignment1
             numberOfDesktops = tmpDesktops;
 
             arrComp = new Computer[numberOfComputers];
-
-            /*
-            for (computerArrayIndex = 0; computerArrayIndex < numberOfComputers; computerArrayIndex++)
-            {
-                arrComp[computerArrayIndex] = new Computer(computerArrayIndex + 1);
-            }
-            */
-
+            
             // netbook 초기화
             for (count = 1; count <= numberOfNetbooks; count++)
             {
@@ -88,6 +81,7 @@ namespace Assignment1
             userArrayIndex = 0;
         }
 
+        // user 배열 값 추가하기
         public void SetUserArray(string userType, string userName)
         {
             // student 추가
@@ -156,22 +150,46 @@ namespace Assignment1
         }
 
         // A: 컴퓨터를 사용자에게 할당하는 메소드
-        public void AssignComputerToUser(int userId, int requestedDays)
+        public string[] AssignComputerToUser(int userId, int requestedDays)
         {
             int computerIndex = 0;
 
             if (arrUser[userId - 1].Type.Contains("Students"))
             {
-                computerIndex = Array.FindIndex(arrComp,element => (element.Type == "Notebook")|| (element.Type == "Desktop"));
+                computerIndex = Array.FindIndex(arrComp, element =>
+                 (element.Type == "Notebook" && element.Available.Contains("Y"))
+                 || (element.Type == "Desktop" && element.Available.Contains("Y")));
             }
 
-            arrUser[userId - 1].Rent = "Y";
+            else if (arrUser[userId - 1].Type.Contains("Gamers"))
+            {
+                computerIndex = Array.FindIndex(arrComp, element =>
+                  (element.Type == "Desktop" && element.Available.Contains("Y")));
+            }
+            else
+            {   // workers
+                computerIndex = Array.FindIndex(arrComp, element => element.Available.Contains("Y"));
+            }
 
+            // arrUser 대여 중으로 변경
+            arrUser[userId - 1].Rent = "Y";
+            arrUser[userId - 1].RentComputerId = computerIndex + 1;
+
+            // arrComp 대여 중으로 변경
             arrComp[computerIndex].Available = "N";
-            arrComp[computerIndex].RequestedUserId = userId;
+            arrComp[computerIndex].RentedUserId = userId;
             arrComp[computerIndex].DaysRequested = requestedDays;
             arrComp[computerIndex].DaysLeft = requestedDays;
             arrComp[computerIndex].DaysUsed = 0;
+
+            writeLine[0] = $"Computer #{arrComp[computerIndex].ComId} " +
+                $"has been assigned to User #{arrUser[userId - 1].UserId}" + "\n";
+
+            writeLine[0] += "===========================================================" + "\n";
+
+            Console.WriteLine(writeLine[0]);
+
+            return writeLine;
         }
 
         // R: 컴퓨터를 반납
@@ -223,6 +241,17 @@ namespace Assignment1
 
                 writeLine[0] +=
                     $"Avail: {arrComp[count].Available}" + "\n";
+
+                // 대여 불가능한 경우
+                if (arrComp[count].Available.Contains("N"))
+                {
+                    writeLine[0] +=
+                        $"(UserId: {arrComp[count].RentedUserId}, " +
+                        $"DR: {arrComp[count].DaysRequested}, " +
+                        $"DL: {arrComp[count].DaysLeft}, " +
+                        $"DU: {arrComp[count].DaysUsed})";
+
+                }
             }
 
 
