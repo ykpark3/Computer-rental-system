@@ -320,6 +320,13 @@ namespace Assignment1
 
                 writeLine[1] +=
                     $"Rent: {arrUser[count].Rent}" + "\n";
+
+                // 대여 중인 경우
+                if (arrUser[count].Rent.Contains("Y"))
+                {
+                    writeLine[1] +=
+                        $"(RentCompId: {arrUser[count].RentComputerId})" + "\n";
+                }
             }
 
             writeLine[2] = "===========================================================";

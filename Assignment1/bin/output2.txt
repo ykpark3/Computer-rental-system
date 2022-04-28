@@ -29,7 +29,9 @@ Computer List:
 User List:
 (1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
 (2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: Y
+(RentCompId: 6)
 (3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: Y
+(RentCompId: 1)
 (4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
 ===========================================================
 It has passed one day...
@@ -49,6 +51,7 @@ Computer List:
 User List:
 (1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
 (2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: Y
+(RentCompId: 6)
 (3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
 (4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
 ===========================================================
@@ -64,6 +67,7 @@ Computer List:
 User List:
 (1) type: Students, Name: Kim, UserId: 1, StudId: 0, Used for: internet, scientific, Rent: N
 (2) type: Gamers, Name: Lee, UserId: 2, GamerId: 0, Used for: internet, game, Rent: Y
+(RentCompId: 6)
 (3) type: OfficeWorkers, Name: Choi, UserId: 3, WorkerId: 0, Used for: internet, Rent: N
 (4) type: Students, Name: Park, UserId: 4, StudId: 1, Used for: internet, scientific, Rent: N
 ===========================================================
