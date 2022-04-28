@@ -101,7 +101,10 @@ namespace Assignment1
                     }
                     else if (readLine.Equals("T")) // 하루의 시간이 경과
                     {
-                        computerManager.PassOneDay();
+                        tmpWriteLine = computerManager.PassOneDay();
+
+                        writeLine = tmpWriteLine[0];
+                        sw.WriteLine(writeLine);
                     }
                     else if (readLine.Equals("S")) // 총 지불금액, 컴퓨터 리스트, 사용자 리스트 상태 표시
                     {

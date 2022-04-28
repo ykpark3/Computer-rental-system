@@ -10,8 +10,10 @@ namespace Assignment1
         private User[] arrUser;
 
         private int count = 0;
-        private int computerArrayIndex = 0, numberOfComputers, numberOfNetbooks, numberOfNotebooks, numberOfDesktops;
+        private int computerArrayIndex = 0, numberOfComputers = 0, numberOfNetbooks = 0, numberOfNotebooks = 0, numberOfDesktops = 0;
         private int userArrayIndex = 0, numberOfUsers = 0, numberOfStudents = 0, numberOfGamers = 0, numberOfWorkers = 0;
+
+        private int computerIndex = 0;
 
         private int totalCost = 0;
 
@@ -26,7 +28,7 @@ namespace Assignment1
             numberOfDesktops = tmpDesktops;
 
             arrComp = new Computer[numberOfComputers];
-            
+
             // netbook 초기화
             for (count = 1; count <= numberOfNetbooks; count++)
             {
@@ -59,7 +61,7 @@ namespace Assignment1
                 Desktop newDesktop = arrComp[computerArrayIndex] as Desktop;
                 newDesktop.DesktopId = count;
                 newDesktop.TypeId = newDesktop.DesktopId;
-            
+
             }
 
             computerArrayIndex += 1;
@@ -135,8 +137,8 @@ namespace Assignment1
 
         public void TestPrint()
         {
-            Console.WriteLine("computerIndex = "+ computerArrayIndex);
-            Console.WriteLine("userIndex = "+ userArrayIndex);
+            Console.WriteLine("computerIndex = " + computerArrayIndex);
+            Console.WriteLine("userIndex = " + userArrayIndex);
 
             for (count = 0; count < computerArrayIndex; count++)
             {
@@ -152,8 +154,6 @@ namespace Assignment1
         // A: 컴퓨터를 사용자에게 할당하는 메소드
         public string[] AssignComputerToUser(int userId, int requestedDays)
         {
-            int computerIndex = 0;
-
             if (arrUser[userId - 1].Type.Contains("Students"))
             {
                 computerIndex = Array.FindIndex(arrComp, element =>
@@ -199,9 +199,43 @@ namespace Assignment1
         }
 
         // T: 하루 시간 경과하는 메소드
-        public void PassOneDay()
-        {
+        public string[] PassOneDay()
+        { 
+            writeLine[0] = "It has passed one day...";
+          
+            for (count = 0; count <numberOfComputers; count++)
+            {
+                if (arrComp[count].Available.Contains("N")) // 대여 중인 컴퓨터인 경우
+                {
+                    arrComp[count].DaysLeft -= 1;   // 남은 대여일 수 1 감소
+                    arrComp[count].DaysUsed += 1;   // 사용한 일 수 1 증가
 
+                    if (arrComp[count].DaysLeft <= 0)    // 남은 대여일 수가 없는 경우
+                    {
+                        writeLine[0] += "\n" +
+                            $"Time for Computer #{arrComp[count].ComId} has expired. " +
+                            $"User #{arrComp[count].RentedUserId} has returned " +
+                            $"Computer #{arrComp[count].ComId} " +
+                            $"and paid {arrComp[count].price * arrComp[count].DaysUsed} won.";
+
+                        totalCost += arrComp[count].price * arrComp[count].DaysUsed;
+
+                        // user 대여 중 아닌 것으로 바꾸기
+                        arrUser[arrComp[count].RentedUserId - 1].Rent = "N";
+                        arrUser[arrComp[count].RentedUserId - 1].RentComputerId = 0;
+
+                        // computer 대여 중 아닌 것으로 바꾸기
+                        arrComp[computerIndex].Available = "Y";
+                        arrComp[computerIndex].RentedUserId = 0;
+                        arrComp[computerIndex].DaysRequested = 0;
+                        arrComp[computerIndex].DaysLeft = 0;
+                        arrComp[computerIndex].DaysUsed = 0;
+                    }
+                }                
+            }
+
+            writeLine[0] += "\n" + "===========================================================";
+            return writeLine;            
         }
 
         // S: 현재 총 지불된 금액, 각 컴퓨터의 대여 상황, 사용자의 현재 상황 정보
@@ -249,8 +283,7 @@ namespace Assignment1
                         $"(UserId: {arrComp[count].RentedUserId}, " +
                         $"DR: {arrComp[count].DaysRequested}, " +
                         $"DL: {arrComp[count].DaysLeft}, " +
-                        $"DU: {arrComp[count].DaysUsed})";
-
+                        $"DU: {arrComp[count].DaysUsed})" + "\n";
                 }
             }
 
