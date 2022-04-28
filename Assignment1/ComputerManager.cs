@@ -185,7 +185,7 @@ namespace Assignment1
             writeLine[0] = $"Computer #{arrComp[computerIndex].ComId} " +
                 $"has been assigned to User #{arrUser[userId - 1].UserId}" + "\n";
 
-            writeLine[0] += "===========================================================" + "\n";
+            writeLine[0] += "===========================================================";
 
             Console.WriteLine(writeLine[0]);
 
@@ -289,7 +289,7 @@ namespace Assignment1
                     $"Rent: {arrUser[count].Rent}" + "\n";
             }
 
-            writeLine[2] = "===========================================================" + "\n";
+            writeLine[2] = "===========================================================";
 
             return writeLine;
         }

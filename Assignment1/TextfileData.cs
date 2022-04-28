@@ -92,7 +92,8 @@ namespace Assignment1
                         userInput = readLine.Split(' '); // 공백을 기준으로 개수 자르기
                         tmpWriteLine = computerManager.AssignComputerToUser(Convert.ToInt32(userInput[1]), Convert.ToInt32(userInput[2]));
 
-                        writeLine += tmpWriteLine[0];
+                        writeLine = tmpWriteLine[0];
+                        sw.WriteLine(writeLine);
                     }
                     else if (readLine.StartsWith("R")) // 사용자의 컴퓨터 반납
                     {
@@ -106,7 +107,8 @@ namespace Assignment1
                     {
                         tmpWriteLine = computerManager.PrintComputerAndUser();
 
-                        writeLine = writeLine + tmpWriteLine[0] + tmpWriteLine[1] + tmpWriteLine[2];
+                        writeLine = tmpWriteLine[0] + tmpWriteLine[1] + tmpWriteLine[2];
+                        sw.WriteLine (writeLine);
                     }
 
                     // Q: 프로그램 종료
@@ -116,7 +118,7 @@ namespace Assignment1
                     }
                 }
 
-                sw.Write(writeLine);   // tmpreadline를 출력파일에 쓰기
+                //sw.Write(writeLine);   // 출력파일에 쓰기
             }
             sr.Close();
             sw.Close();
