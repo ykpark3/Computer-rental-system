@@ -135,22 +135,6 @@ namespace Assignment1
             userArrayIndex++;
         }
 
-        public void TestPrint()
-        {
-            Console.WriteLine("computerIndex = " + computerArrayIndex);
-            Console.WriteLine("userIndex = " + userArrayIndex);
-
-            for (count = 0; count < computerArrayIndex; count++)
-            {
-                Console.WriteLine(arrComp[count].TypeId);
-            }
-
-            for (count = 0; count < userArrayIndex; count++)
-            {
-                Console.WriteLine(arrUser[count].Name);
-            }
-        }
-
         // A: 컴퓨터를 사용자에게 할당하는 메소드
         public string[] AssignComputerToUser(int userId, int requestedDays)
         {
@@ -208,8 +192,6 @@ namespace Assignment1
             arrComp[computerIndex].DaysRequested = 0;
             arrComp[computerIndex].DaysLeft = 0;
             arrComp[computerIndex].DaysUsed = 0;
-
-            Console.WriteLine("total cost = {0}", totalCost);
 
         }
 

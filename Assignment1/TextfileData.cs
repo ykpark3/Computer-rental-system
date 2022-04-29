@@ -7,10 +7,6 @@ namespace Assignment1
     class TextfileData
     {
         ComputerManager computerManager;
-
-        public static List<Students> Students = new List<Students>();
-        public static List<Gamers> Gamers = new List<Gamers>();
-        public static List<Workers> Workers = new List<Workers>();
         
         string readLine; // 입력 파일 한 줄씩 읽기
         string[] tmpWriteLine;
@@ -36,14 +32,13 @@ namespace Assignment1
 
         public void SetTextfile()
         {
-            StreamReader sr = new StreamReader(@"..\..\input.txt");
+            StreamReader sr = new StreamReader(@"..\..\input2.txt");
             StreamWriter sw = new StreamWriter(@"..\..\output2.txt");
 
 
             //while (sr.Peek() >= 0){ // 입력 파일에 더 이상 읽을 문자가 없을 때 까지 실행 
             for (fileLineCount = 1; sr.Peek() >= 0; fileLineCount++)
             {
-                Console.WriteLine("file Line count = {0}", fileLineCount);
                 readLine = sr.ReadLine(); // 입력파일에 한 줄의 문자열을 읽어와 string 변수에 tmpreadline 할당
 
                 // 총 컴퓨터의 수
@@ -123,11 +118,9 @@ namespace Assignment1
                     }
                 }
 
-                //sw.Write(writeLine);   // 출력파일에 쓰기
             }
             sr.Close();
             sw.Close();
-        }
-        
+        }        
     }
 }
