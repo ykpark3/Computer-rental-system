@@ -43,6 +43,7 @@ namespace Assignment1
             //while (sr.Peek() >= 0){ // 입력 파일에 더 이상 읽을 문자가 없을 때 까지 실행 
             for (fileLineCount = 1; sr.Peek() >= 0; fileLineCount++)
             {
+                Console.WriteLine("file Line count = {0}", fileLineCount);
                 readLine = sr.ReadLine(); // 입력파일에 한 줄의 문자열을 읽어와 string 변수에 tmpreadline 할당
 
                 // 총 컴퓨터의 수
@@ -81,7 +82,7 @@ namespace Assignment1
 
                     if(fileLineCount == 4 + numberOfUsers - 1)
                     {
-                        computerManager.TestPrint();
+                       // computerManager.TestPrint();
                     }
                 }
 
@@ -97,7 +98,8 @@ namespace Assignment1
                     }
                     else if (readLine.StartsWith("R")) // 사용자의 컴퓨터 반납
                     {
-                        computerManager.ReturnComputer();
+                        userInput = readLine.Split(' '); // 공백을 기준으로 개수 자르기
+                        computerManager.ReturnComputer(Convert.ToInt32(userInput[1]));
                     }
                     else if (readLine.Equals("T")) // 하루의 시간이 경과
                     {

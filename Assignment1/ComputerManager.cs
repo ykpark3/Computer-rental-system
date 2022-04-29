@@ -156,15 +156,15 @@ namespace Assignment1
         {
             if (arrUser[userId - 1].Type.Contains("Students"))
             {
-                computerIndex = Array.FindIndex(arrComp, element =>
-                 (element.Type == "Notebook" && element.Available.Contains("Y"))
-                 || (element.Type == "Desktop" && element.Available.Contains("Y")));
+                computerIndex = Array.FindIndex(arrComp, element
+                => (element.Type == "Notebook" && element.Available.Contains("Y"))
+                || (element.Type == "Desktop" && element.Available.Contains("Y")));
             }
 
             else if (arrUser[userId - 1].Type.Contains("Gamers"))
             {
-                computerIndex = Array.FindIndex(arrComp, element =>
-                  (element.Type == "Desktop" && element.Available.Contains("Y")));
+                computerIndex = Array.FindIndex(arrComp, element 
+                    => (element.Type == "Desktop" && element.Available.Contains("Y")));
             }
             else
             {   // workers
@@ -187,14 +187,29 @@ namespace Assignment1
 
             writeLine[0] += "===========================================================";
 
-            Console.WriteLine(writeLine[0]);
-
             return writeLine;
         }
 
         // R: 컴퓨터를 반납
-        public void ReturnComputer()
+        public void ReturnComputer(int userId)
         {
+            computerIndex = Array.FindIndex(arrComp, element
+                => element.RentedUserId.Equals(userId));
+
+            totalCost += (arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed);
+
+            // user 대여 중 아닌 것으로 바꾸기
+            arrUser[userId - 1].Rent = "N";
+            arrUser[userId - 1].RentComputerId = 0;
+
+            // computer 대여 중 아닌 것으로 바꾸기
+            arrComp[computerIndex].Available = "Y";
+            arrComp[computerIndex].RentedUserId = 0;
+            arrComp[computerIndex].DaysRequested = 0;
+            arrComp[computerIndex].DaysLeft = 0;
+            arrComp[computerIndex].DaysUsed = 0;
+
+            Console.WriteLine("total cost = {0}", totalCost);
 
         }
 
@@ -218,18 +233,7 @@ namespace Assignment1
                             $"Computer #{arrComp[count].ComId} " +
                             $"and paid {arrComp[count].price * arrComp[count].DaysUsed} won.";
 
-                        totalCost += arrComp[count].price * arrComp[count].DaysUsed;
-
-                        // user 대여 중 아닌 것으로 바꾸기
-                        arrUser[arrComp[count].RentedUserId - 1].Rent = "N";
-                        arrUser[arrComp[count].RentedUserId - 1].RentComputerId = 0;
-
-                        // computer 대여 중 아닌 것으로 바꾸기
-                        arrComp[computerIndex].Available = "Y";
-                        arrComp[computerIndex].RentedUserId = 0;
-                        arrComp[computerIndex].DaysRequested = 0;
-                        arrComp[computerIndex].DaysLeft = 0;
-                        arrComp[computerIndex].DaysUsed = 0;
+                        ReturnComputer(arrComp[count].RentedUserId);
                     }
                 }                
             }
@@ -242,7 +246,6 @@ namespace Assignment1
         public string[] PrintComputerAndUser()
         {
             writeLine[0] = $"Total Cost: {totalCost}" + "\n";
-            //Console.WriteLine($"Total Cost: {totalCost}");
 
             // computer list 출력
             writeLine[0] += "Computer List:" + "\n";
