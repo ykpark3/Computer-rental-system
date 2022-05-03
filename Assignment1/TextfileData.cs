@@ -90,7 +90,9 @@ namespace Assignment1
                     else if (readLine.StartsWith("R")) // 사용자의 컴퓨터 반납
                     {
                         userInput = readLine.Split(' '); // 공백을 기준으로 개수 자르기
-                        computerManager.ReturnComputer(Convert.ToInt32(userInput[1]), 'R');
+                        writeLine = computerManager.ReturnComputer(Convert.ToInt32(userInput[1]), 'R');
+
+                        sw.WriteLine(writeLine);
                     }
                     else if (readLine.Equals("T")) // 하루의 시간이 경과
                     {

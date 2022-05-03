@@ -180,12 +180,23 @@ namespace Assignment1
         }
 
         // R: 컴퓨터를 반납
-        public string[] ReturnComputer(int userId, char command)
+        public string ReturnComputer(int userId, char command)
         {
             computerIndex = Array.FindIndex(arrComp, element
                 => element.RentedUserId.Equals(userId));
 
-            totalCost += (arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed);
+
+            // R 명령어로 반납하는 경우
+            if (command.Equals('R'))
+            {
+                writeLine[0] = 
+                    $"User #{arrUser[userId - 1].UserId} has returned " +
+                    $"Computer #{arrUser[userId - 1].RentComputerId} " +
+                    $"and paid {arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed} won.";
+
+                writeLine[0] += "\n" + "===========================================================";
+            }
+
 
             // user 대여 중 아닌 것으로 바꾸기
             arrUser[userId - 1].Rent = "N";
@@ -198,22 +209,14 @@ namespace Assignment1
             arrComp[computerIndex].DaysLeft = 0;
             arrComp[computerIndex].DaysUsed = 0;
 
-            // R 명령어로 반납하는 경우
-            if (command.Equals('R'))
-            {
-                writeLine[0] =
-                    $"User #{arrUser[userId - 1].UserId} has returned " +
-                    $"Computer #{arrUser[userId - 1].RentComputerId} and paid {totalCost} won.";
+            totalCost += (arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed);
 
-                writeLine[0] += "\n" + "===========================================================";
-
-                return writeLine;
-            }
+            return writeLine[0];
         }
 
         // T: 하루 시간 경과하는 메소드
         public string[] PassOneDay()
-        { 
+        {
             writeLine[0] = "It has passed one day...";
           
             for (count = 0; count <numberOfComputers; count++)
@@ -226,17 +229,18 @@ namespace Assignment1
                     if (arrComp[count].DaysLeft <= 0)    // 남은 대여일 수가 없는 경우
                     {
                         writeLine[0] += "\n" +
-                            $"Time for Computer #{arrComp[count].ComId} has expired. " +
-                            $"User #{arrComp[count].RentedUserId} has returned " +
-                            $"Computer #{arrComp[count].ComId} " +
-                            $"and paid {arrComp[count].price * arrComp[count].DaysUsed} won.";
+                           $"Time for Computer #{arrComp[count].ComId} has expired. " +
+                           $"User #{arrComp[count].RentedUserId} has returned " +
+                           $"Computer #{arrComp[count].ComId} " +
+                           $"and paid {arrComp[count].price * arrComp[count].DaysUsed} won.";
 
                         ReturnComputer(arrComp[count].RentedUserId, 'T');    // 반납
+                        
                     }
                 }                
             }
-
             writeLine[0] += "\n" + "===========================================================";
+
             return writeLine;            
         }
 
