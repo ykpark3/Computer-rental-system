@@ -185,7 +185,6 @@ namespace Assignment1
             computerIndex = Array.FindIndex(arrComp, element
                 => element.RentedUserId.Equals(userId));
 
-
             // R 명령어로 반납하는 경우
             if (command.Equals('R'))
             {
@@ -197,6 +196,7 @@ namespace Assignment1
                 writeLine[0] += "\n" + "===========================================================";
             }
 
+            totalCost += (arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed);
 
             // user 대여 중 아닌 것으로 바꾸기
             arrUser[userId - 1].Rent = "N";
@@ -208,8 +208,6 @@ namespace Assignment1
             arrComp[computerIndex].DaysRequested = 0;
             arrComp[computerIndex].DaysLeft = 0;
             arrComp[computerIndex].DaysUsed = 0;
-
-            totalCost += (arrComp[computerIndex].price * arrComp[computerIndex].DaysUsed);
 
             return writeLine[0];
         }
