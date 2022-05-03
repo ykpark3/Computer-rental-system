@@ -4,18 +4,23 @@ using System.Text;
 
 namespace Assignment1
 {
+
+    // 컴퓨터와 사용자 관리를 위한 메소드들
     class ComputerManager
     {
         private Computer[] arrComp;
         private User[] arrUser;
 
         private int count = 0;
+
+        // computer에 관한 개수
         private int computerArrayIndex = 0, numberOfComputers = 0, numberOfNetbooks = 0, numberOfNotebooks = 0, numberOfDesktops = 0;
+        // user에 관한 개수
         private int userArrayIndex = 0, numberOfUsers = 0, numberOfStudents = 0, numberOfGamers = 0, numberOfWorkers = 0;
 
         private int computerIndex = 0;
 
-        private int totalCost = 0;
+        private int totalCost = 0;  // 총 요금 
 
         private string[] writeLine = new string[5];
 
@@ -175,7 +180,7 @@ namespace Assignment1
         }
 
         // R: 컴퓨터를 반납
-        public void ReturnComputer(int userId)
+        public string[] ReturnComputer(int userId, char command)
         {
             computerIndex = Array.FindIndex(arrComp, element
                 => element.RentedUserId.Equals(userId));
@@ -193,6 +198,17 @@ namespace Assignment1
             arrComp[computerIndex].DaysLeft = 0;
             arrComp[computerIndex].DaysUsed = 0;
 
+            // R 명령어로 반납하는 경우
+            if (command.Equals('R'))
+            {
+                writeLine[0] =
+                    $"User #{arrUser[userId - 1].UserId} has returned " +
+                    $"Computer #{arrUser[userId - 1].RentComputerId} and paid {totalCost} won.";
+
+                writeLine[0] += "\n" + "===========================================================";
+
+                return writeLine;
+            }
         }
 
         // T: 하루 시간 경과하는 메소드
@@ -215,7 +231,7 @@ namespace Assignment1
                             $"Computer #{arrComp[count].ComId} " +
                             $"and paid {arrComp[count].price * arrComp[count].DaysUsed} won.";
 
-                        ReturnComputer(arrComp[count].RentedUserId);
+                        ReturnComputer(arrComp[count].RentedUserId, 'T');    // 반납
                     }
                 }                
             }
@@ -319,6 +335,5 @@ namespace Assignment1
             return writeLine;
         }
 
-        // 컴퓨터와 사용자 관리를 위한 메소드
     }
 }

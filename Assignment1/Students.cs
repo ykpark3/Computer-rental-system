@@ -6,6 +6,7 @@ namespace Assignment1
 {
     class Students : User
     {
+        // 생성자
         public Students(int userId) : base(userId)
         {
             Type = "Students";

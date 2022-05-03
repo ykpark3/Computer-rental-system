@@ -30,11 +30,11 @@ namespace Assignment1
             computerManager = new ComputerManager();
         }
 
+        // text file 읽고 쓰기
         public void SetTextfile()
         {
-            StreamReader sr = new StreamReader(@"..\..\input2.txt");
-            StreamWriter sw = new StreamWriter(@"..\..\output2.txt");
-
+            StreamReader sr = new StreamReader(@"..\..\input.txt"); // 읽을 text file
+            StreamWriter sw = new StreamWriter(@"..\..\output.txt");    // 쓸 text file
 
             //while (sr.Peek() >= 0){ // 입력 파일에 더 이상 읽을 문자가 없을 때 까지 실행 
             for (fileLineCount = 1; sr.Peek() >= 0; fileLineCount++)
@@ -75,10 +75,6 @@ namespace Assignment1
 
                     computerManager.SetUserArray(userInput[0], userInput[1]);
 
-                    if(fileLineCount == 4 + numberOfUsers - 1)
-                    {
-                       // computerManager.TestPrint();
-                    }
                 }
 
                 else
@@ -94,7 +90,7 @@ namespace Assignment1
                     else if (readLine.StartsWith("R")) // 사용자의 컴퓨터 반납
                     {
                         userInput = readLine.Split(' '); // 공백을 기준으로 개수 자르기
-                        computerManager.ReturnComputer(Convert.ToInt32(userInput[1]));
+                        computerManager.ReturnComputer(Convert.ToInt32(userInput[1]), 'R');
                     }
                     else if (readLine.Equals("T")) // 하루의 시간이 경과
                     {
@@ -111,11 +107,6 @@ namespace Assignment1
                         sw.WriteLine (writeLine);
                     }
 
-                    // Q: 프로그램 종료
-                    else
-                    {
-
-                    }
                 }
 
             }

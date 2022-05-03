@@ -6,7 +6,7 @@ namespace Assignment1
 {
     class Netbook : Computer
     {
-
+        // 생성자
         public Netbook(int computerId) : base(computerId)
         {
             Type = "Netbook";
